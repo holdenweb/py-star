@@ -9,10 +9,23 @@ env = Environment(
     autoescape=select_autoescape()
 )
 
+USER = dict(
+    callsign="G3VEK",
+)
+
+SYSTEM = dict(
+    hostname="py-star",
+)
+
+SOFTWARE = dict(
+    version="0.1.0",
+    dashdate="20230522",
+)
+
 @app.route("/")
 def hello():
     template = env.get_template("base.html")
-    return Response(template.render(the="variables", go="here"))
+    return Response(template.render(user=USER, system=SYSTEM, software=SOFTWARE))
 
 
 if __name__ == "__main__":
