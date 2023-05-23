@@ -27,7 +27,9 @@ def hello():
     template = env.get_template("base.html")
     return Response(template.render(user=USER, system=SYSTEM, software=SOFTWARE))
 
-
-if __name__ == "__main__":
+def main():
     app.run(host="0.0.0.0", port=8000, use_reloader=True)
 
+
+if __name__ == "__main__":
+    main()
